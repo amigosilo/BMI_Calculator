@@ -22,6 +22,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
+        //
+        // Pochiki was here!
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'BMI Calculator'),
@@ -64,6 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    //a aaaaaaaa
+
+    //1231645645645646
     //
     return Scaffold(
       appBar: AppBar(
