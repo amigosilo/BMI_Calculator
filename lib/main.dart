@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,9 +27,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         //
         // Pochiki was here!
-        primarySwatch: Colors.blue,
+
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.lime),
+        primarySwatch: Colors.pink,
       ),
-      home: const MyHomePage(title: 'BMI Calculator'),
+      home: const MyHomePage(
+        title: 'BMI Calculator',
+      ),
     );
   }
 }
@@ -54,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String _bmiStr = ''; // BMI value represented as String
   int _height = 183; // Initial value, actual value is taken from slider value
   int _weight = 70; // Initial value, actual value is taken from slider value
-  void _calculate() { // Function to calculate BMI
+  void _calculate() {
+    // Function to calculate BMI
     setState(() {
       _bmi = (_weight / ((_height / 100) * (_height / 100)));
       _bmiStr = _bmi.toStringAsFixed(1);
@@ -73,7 +81,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //1231645645645646
     //
+
     return Scaffold(
+      backgroundColor: Colors.grey.shade900,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
@@ -102,68 +112,129 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  '$_height',
-
-                ),
-                const Text(
-                  ' cm',
-                ),
+                Text('$_height',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                      color: Colors.white,
+                    )),
+                const Text(' cm',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                      color: Colors.white,
+                    )),
               ],
             ),
+
             //slide bar
-            Slider(
-              value: _height.toDouble(),
-              min: 100,
-              max: 200,
-              label: _height.toString(),
-              onChanged: (double value) {
-                setState(() {
-                  _height = value.round();
-                });
-              },
+            Container(
+              width: 380,
+              height: 80,
+              color: Colors.grey[850],
+              child: Slider(
+                value: _height.toDouble(),
+                min: 100,
+                max: 200,
+                label: _height.toString(),
+                onChanged: (double value) {
+                  setState(() {
+                    _height = value.round();
+                  });
+                },
+              ),
+            ),
+            Container(
+              width: 380,
+              height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
                   '$_weight',
-
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  ),
                 ),
                 const Text(
                   ' kg',
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
-            Slider(
-              value: _weight.toDouble(),
-              min: 40,
-              max: 200,
-              label: _weight.toString(),
-              onChanged: (double value) {
-                setState(() {
-                  _weight = value.round();
-                });
-              },
+            Container(
+              width: 380,
+              height: 80,
+              color: Colors.grey[850],
+              child: Slider(
+                value: _weight.toDouble(),
+                min: 40,
+                max: 200,
+                label: _weight.toString(),
+                onChanged: (double value) {
+                  setState(() {
+                    _weight = value.round();
+                  });
+                },
+              ),
             ),
-            Row( // Widget for showing result BMI
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const Text(
-                  'Your BMI: ',
-                ),
-                Text(
-                  _bmiStr,
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-              ],
+            Container(
+              width: 380,
+              height: 20,
             ),
-            Row( // Widget for button to calculate BMI
+            Container(
+              width: 300,
+              height: 80,
+              color: Colors.grey[100],
+              child: Row(
+                // Widget for showing result BMI
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text(
+                    'Your BMI: ',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                      color: Colors.black54,
+                    ),
+                  ),
+                  Text(
+                    _bmiStr,
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: 380,
+              height: 20,
+            ),
+
+            Row(
+              // Widget for button to calculate BMI
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
-                    onPressed: _calculate,
-                    child: const Text('Calculate'),
+                  onPressed: _calculate,
+                  child: const Text(
+                    'Calculate',
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
                 ),
               ],
             ),
