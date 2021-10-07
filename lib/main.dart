@@ -50,11 +50,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _bmi = 0;
-
-  void _calculate() {
-    setState(() { // TODO Placeholder function, change to proper function.
-      _bmi++;
+  double _bmi = 0; // Double value of BMI
+  String _bmiStr = ''; // BMI value represented as String
+  int _height = 183; // Initial value, actual value is taken from slider value
+  int _weight = 70; // Initial value, actual value is taken from slider value
+  void _calculate() { // Function to calculate BMI
+    setState(() {
+      _bmi = (_weight / ((_height / 100) * (_height / 100)));
+      _bmiStr = _bmi.toStringAsFixed(1);
     });
   }
 
@@ -96,19 +99,19 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
+            Row( // Widget for showing result BMI
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const Text(
                   'Your BMI:',
                 ),
                 Text(
-                  '$_bmi',
+                  _bmiStr,
                   style: Theme.of(context).textTheme.headline4,
                 ),
               ],
             ),
-            Row(
+            Row( // Widget for button to calculate BMI
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
