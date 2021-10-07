@@ -99,11 +99,58 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  '$_height',
+
+                ),
+                const Text(
+                  ' cm',
+                ),
+              ],
+            ),
+            //slide bar
+            Slider(
+              value: _height.toDouble(),
+              min: 100,
+              max: 200,
+              label: _height.toString(),
+              onChanged: (double value) {
+                setState(() {
+                  _height = value.round();
+                });
+              },
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  '$_weight',
+
+                ),
+                const Text(
+                  ' kg',
+                ),
+              ],
+            ),
+            Slider(
+              value: _weight.toDouble(),
+              min: 40,
+              max: 200,
+              label: _weight.toString(),
+              onChanged: (double value) {
+                setState(() {
+                  _weight = value.round();
+                });
+              },
+            ),
             Row( // Widget for showing result BMI
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const Text(
-                  'Your BMI:',
+                  'Your BMI: ',
                 ),
                 Text(
                   _bmiStr,
