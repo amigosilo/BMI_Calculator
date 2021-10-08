@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _value = 1; // Gender value
   double _bmi = 0; // Double value of BMI
   String _bmiStr = ''; // BMI value represented as String
+  String _bmiCat = ''; // BMI Category represented as String
   int _height = 183; // Initial value, actual value is taken from slider value
   int _weight = 70; // Initial value, actual value is taken from slider value
   void _calculate() {
@@ -49,6 +50,15 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _bmi = (_weight / ((_height / 100) * (_height / 100)));
       _bmiStr = _bmi.toStringAsFixed(1);
+      if (_bmi <= 18.5) {
+        _bmiCat = 'Underweight';
+      } else if (_bmi > 18.5 && _bmi <= 25.0) {
+        _bmiCat = 'Normal weight';
+      } else if (_bmi > 25.0 && _bmi <= 30.0) {
+        _bmiCat = 'Overweight';
+      } else if (_bmi > 30.0) {
+        _bmiCat = 'Obese';
+      }
     });
   }
 
@@ -245,6 +255,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ],
+            ),
+            const SizedBox(
+              width: 380,
+              height: 20,
+            ),
+            Container(
+              width: 300,
+              height: 80,
+              color: Colors.grey[100],
+              child: Column(
+                // Widget for showing BMI category
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text(
+                    'BMI Category: ',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
+                      color: Colors.black54,
+                    ),
+                  ),
+                  Text(
+                    _bmiCat,
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
