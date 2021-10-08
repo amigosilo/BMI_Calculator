@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,6 +59,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _value = 1;
   double _bmi = 0; // Double value of BMI
   String _bmiStr = ''; // BMI value represented as String
   int _height = 183; // Initial value, actual value is taken from slider value
@@ -108,7 +111,47 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Row(
+              children: [
+                Radio(
+                  value: 1,
+                  groupValue: _value,
+                  onChanged: (value) {},
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text("Male"),
+              ],
+            ),
+            Row(
+              children: [
+                Radio(
+                  value: 2,
+                  groupValue: _value,
+                  onChanged: (value) {},
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text("Female"),
+              ],
+            ),
+            Row(
+              children: [
+                Radio(
+                  value: 3,
+                  groupValue: _value,
+                  onChanged: (value) {},
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text("Other"),
+              ],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
