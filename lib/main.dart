@@ -43,8 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
   double _bmi = 0; // Double value of BMI
   String _bmiStr = ''; // BMI value represented as String
   String _bmiCat = ''; // BMI Category represented as String
-  int _height = 183; // Initial value, actual value is taken from slider value
-  int _weight = 70; // Initial value, actual value is taken from slider value
+  int _height = 175; // Initial value, actual value is taken from slider value
+  int _weight = 60; // Initial value, actual value is taken from slider value
   void _calculate() {
     // Function to calculate BMI
     setState(() {
@@ -89,7 +89,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   width: 10.0,
                 ),
-                const Text("Male"),
+                const Text("Male",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  )
+                ),
               ],
             ),
             Row(
@@ -106,7 +113,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   width: 10.0,
                 ),
-                const Text("Female"),
+                const Text("Female",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  )
+                ),
               ],
             ),
             Row(
@@ -123,27 +137,35 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   width: 10.0,
                 ),
-                const Text("Other"),
+                const Text("Other",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  )
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text('$_height',
-                    style: const TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2.0,
-                      color: Colors.white,
-                    )
+                  style: const TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  )
                 ),
                 const Text(' cm',
-                    style: TextStyle(
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2.0,
-                      color: Colors.white,
-                    )),
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                    color: Colors.white,
+                  )
+                ),
               ],
             ),
 
