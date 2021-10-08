@@ -59,7 +59,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _value = 1;
+  int _value = 1; // Gender value
   double _bmi = 0; // Double value of BMI
   String _bmiStr = ''; // BMI value represented as String
   int _height = 183; // Initial value, actual value is taken from slider value
@@ -118,7 +118,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Radio(
                   value: 1,
                   groupValue: _value,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    setState(() {
+                      _value = int.parse(value.toString());
+                    });
+                  },
                 ),
                 SizedBox(
                   width: 10.0,
@@ -131,7 +135,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Radio(
                   value: 2,
                   groupValue: _value,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    setState(() {
+                      _value = int.parse(value.toString());
+                    });
+                  },
                 ),
                 SizedBox(
                   width: 10.0,
@@ -144,7 +152,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Radio(
                   value: 3,
                   groupValue: _value,
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    setState(() {
+                      _value = int.parse(value.toString());
+                    });
+                  },
                 ),
                 SizedBox(
                   width: 10.0,
